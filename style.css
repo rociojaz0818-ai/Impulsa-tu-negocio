@@ -1518,3 +1518,252 @@ h1 {
         min-height: 120px !important;
     }
 }
+/* =========================
+   SECCIÓN 06 — CONTACTO
+========================= */
+
+.contact-section {
+    position: relative;
+    min-height: 100vh;
+    padding: 120px 8vw;
+
+    background: #BA011A;
+    color: #FCF5AF;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+}
+
+.contact-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    position: relative;
+    z-index: 2;
+}
+
+.contact-section .section-number {
+    color: #F0A533;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+}
+
+
+/* TÍTULO */
+
+.contact-section h2 {
+    margin: 20px 0 35px;
+
+    font-family: "Anton", sans-serif;
+    font-size: clamp(5rem, 12vw, 12rem);
+    line-height: 0.78;
+    letter-spacing: -2px;
+}
+
+.contact-section h2 span {
+    display: block;
+    color: #F0A533;
+}
+
+
+/* DESCRIPCIÓN */
+
+.contact-description {
+    max-width: 600px;
+
+    margin: 0 0 70px;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+
+/* CONTACTOS */
+
+.contact-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    max-width: 900px;
+}
+
+.contact-card {
+    min-height: 150px;
+
+    padding: 30px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    background: #FCF5AF;
+    color: #000000;
+
+    text-decoration: none;
+
+    border: 3px solid #000000;
+    box-shadow: 8px 8px 0 #000000;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.contact-card:hover {
+    background: #F0A533;
+
+    transform: translate(6px, 6px);
+
+    box-shadow: 2px 2px 0 #000000;
+}
+
+.contact-icon {
+    font-size: 2rem;
+}
+
+.contact-card div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.contact-card small {
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+}
+
+.contact-card strong {
+    font-family: "Anton", sans-serif;
+
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1;
+}
+
+.contact-arrow {
+    margin-left: auto;
+
+    font-size: 2rem;
+
+    transition: transform 0.25s ease;
+}
+
+.contact-card:hover .contact-arrow {
+    transform: translate(5px, -5px);
+}
+
+
+/* FRASE FINAL */
+
+.contact-final {
+    margin-top: 100px;
+
+    padding-top: 35px;
+
+    border-top: 3px solid #FCF5AF;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.contact-final p {
+    margin: 0;
+
+    font-family: "Anton", sans-serif;
+    font-size: clamp(2rem, 4vw, 4rem);
+}
+
+.contact-final span {
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+}
+
+
+/* ESTRELLAS */
+
+.contact-star-1,
+.contact-star-2 {
+    position: absolute;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.contact-star-1 {
+    top: 8%;
+    right: 7%;
+
+    color: #0B4B8B;
+
+    font-size: clamp(4rem, 9vw, 9rem);
+
+    animation: floatStar 4s ease-in-out infinite;
+}
+
+.contact-star-2 {
+    bottom: 8%;
+    left: 5%;
+
+    color: #F0A533;
+
+    font-size: clamp(2rem, 5vw, 5rem);
+
+    animation: floatStar 5s ease-in-out infinite reverse;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    .contact-section {
+        padding: 90px 6vw;
+    }
+
+    .contact-section h2 {
+        font-size: clamp(4rem, 18vw, 7rem);
+    }
+
+    .contact-description {
+        margin-bottom: 50px;
+    }
+
+    .contact-links {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        min-height: 125px;
+        padding: 22px;
+    }
+
+    .contact-card strong {
+        font-size: 1.5rem;
+    }
+
+    .contact-final {
+        margin-top: 70px;
+
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
