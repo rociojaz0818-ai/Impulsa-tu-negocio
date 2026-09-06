@@ -1,1 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&display=swap');
 
+:root {
+    --rojo: #BA011A;
+    --naranja: #E44F0A;
+    --amarillo: #F0A533;
+    --crema: #FCF5AF;
+    --azul: #0B4B8B;
+    --negro: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--negro);
+    color: var(--crema);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            var(--rojo) 0%,
+            var(--naranja) 28%,
+            var(--negro) 72%
+        );
+}
+
+.hero-content {
+    width: min(1100px, 90%);
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(5rem, 14vw, 12rem);
+    line-height: 0.82;
+    letter-spacing: 0.01em;
+    color: var(--crema);
+
+    text-shadow:
+        8px 8px 0 var(--azul);
+
+    animation: aparecer 1s ease forwards;
+}
+
+.hero-text {
+    max-width: 520px;
+    margin: 2.5rem auto;
+
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.hero-button {
+    display: inline-block;
+
+    padding: 1rem 2rem;
+
+    background-color: var(--crema);
+    color: var(--negro);
+
+    text-decoration: none;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.08em;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.hero-button:hover {
+    transform: scale(1.08) rotate(-2deg);
+    background-color: var(--amarillo);
+    color: var(--negro);
+}
+
+.star {
+    position: absolute;
+    font-size: clamp(2rem, 4vw, 5rem);
+    color: var(--crema);
+    z-index: 1;
+
+    animation: flotar 4s ease-in-out infinite;
+}
+
+.star-top {
+    top: 8%;
+    left: 50%;
+}
+
+.star-right {
+    right: 8%;
+    top: 48%;
+    animation-delay: 0.7s;
+}
+
+.star-bottom {
+    bottom: 8%;
+    left: 50%;
+    animation-delay: 1.4s;
+}
+
+.star-left {
+    left: 8%;
+    top: 48%;
+    animation-delay: 2.1s;
+}
+
+.placeholder {
+    min-height: 100vh;
+    padding: 10rem 8%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: var(--crema);
+    color: var(--negro);
+}
+
+.placeholder p {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    margin-bottom: 2rem;
+}
+
+.placeholder h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.85;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flotar {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(8deg);
+    }
+}
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: clamp(4rem, 20vw, 7rem);
+        text-shadow: 5px 5px 0 var(--azul);
+    }
+
+    .hero-text {
+        font-size: 0.95rem;
+        padding: 0 1rem;
+    }
+
+    .star-left {
+        left: 4%;
+    }
+
+    .star-right {
+        right: 4%;
+    }
+
+    .placeholder {
+        padding: 7rem 7%;
+    }
+}
