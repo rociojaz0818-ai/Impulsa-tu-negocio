@@ -1435,3 +1435,86 @@ h1 {
     }
 
 }
+/* =========================
+   FORZAR ESTILO SECCIÓN 04
+========================= */
+
+#cliente {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#cliente .client-options {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+}
+
+#cliente .client-card {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    display: flex !important;
+    width: 100% !important;
+    min-height: 150px !important;
+
+    padding: 2rem !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    color: #FCF5AF !important;
+
+    border: 0 !important;
+    border-right: 1px solid rgba(252, 245, 175, 0.5) !important;
+    border-bottom: 1px solid rgba(252, 245, 175, 0.5) !important;
+
+    font-family: "DM Sans", sans-serif !important;
+    font-size: 1rem !important;
+    text-align: left !important;
+
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+}
+
+#cliente .client-card:hover {
+    background: #E44F0A !important;
+    color: #FCF5AF !important;
+}
+
+#cliente .client-card.active {
+    background: #FCF5AF !important;
+    color: #000000 !important;
+}
+
+#cliente .client-title {
+    font-family: "Anton", sans-serif !important;
+    font-size: clamp(1.3rem, 2.5vw, 2.2rem) !important;
+    line-height: 1 !important;
+}
+
+#cliente .client-check {
+    margin-left: auto !important;
+}
+
+#cliente .client-result {
+    display: block !important;
+    max-width: 800px !important;
+    margin: 5rem auto 0 !important;
+    padding: 3rem !important;
+
+    background: #FCF5AF !important;
+    color: #000000 !important;
+
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 700px) {
+    #cliente .client-options {
+        grid-template-columns: 1fr !important;
+    }
+
+    #cliente .client-card {
+        min-height: 120px !important;
+    }
+}
