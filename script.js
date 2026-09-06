@@ -313,3 +313,68 @@ clientCards.forEach((card) => {
     });
 
 });
+/* =========================
+   ANIMACIONES AL HACER SCROLL
+========================= */
+
+const revealElements = document.querySelectorAll(
+    `
+    .business-header,
+    .business-card,
+    .business-response,
+
+    .goals-header,
+    .goal-card,
+    .goals-result,
+
+    .client-header,
+    .client-card,
+    .client-result,
+
+    .result-header,
+    .result-statement,
+    .idea-card,
+    .result-cta,
+
+    .contact-content
+    `
+);
+
+revealElements.forEach((element, index) => {
+
+    element.classList.add("reveal");
+
+    const delay = index % 4;
+
+    if (delay > 0) {
+        element.classList.add(`reveal-delay-${delay}`);
+    }
+
+});
+
+
+const revealObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+                revealObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+
+revealElements.forEach((element) => {
+    revealObserver.observe(element);
+});
