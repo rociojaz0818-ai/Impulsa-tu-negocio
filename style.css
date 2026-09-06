@@ -20,10 +20,15 @@ html {
 }
 
 body {
-    background-color: var(--negro);
+    background: var(--negro);
     color: var(--crema);
     font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
 }
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
     min-height: 100vh;
@@ -38,130 +43,290 @@ body {
         radial-gradient(
             circle at 50% 45%,
             var(--rojo) 0%,
-            var(--naranja) 28%,
-            var(--negro) 72%
+            var(--naranja) 22%,
+            var(--negro) 68%
         );
 }
 
+/* textura visual */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(252, 245, 175, 0.16) 1px,
+            transparent 1px
+        );
+
+    background-size: 18px 18px;
+
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* círculo decorativo */
+
+.hero::after {
+    content: "";
+    position: absolute;
+
+    width: 55vw;
+    height: 55vw;
+
+    max-width: 800px;
+    max-height: 800px;
+
+    border: 1px solid rgba(252, 245, 175, 0.25);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+
 .hero-content {
     width: min(1100px, 90%);
+
     position: relative;
     z-index: 2;
+
     text-align: center;
 }
 
 .eyebrow {
-    font-size: 0.8rem;
-    letter-spacing: 0.35em;
+    font-size: 0.75rem;
+    letter-spacing: 0.45em;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+
+    margin-bottom: 2rem;
+
+    opacity: 0;
+
+    animation: aparecer 0.8s ease forwards;
 }
 
 h1 {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(5rem, 14vw, 12rem);
-    line-height: 0.82;
-    letter-spacing: 0.01em;
+
+    font-size: clamp(5rem, 15vw, 13rem);
+
+    line-height: 0.78;
+
+    letter-spacing: 0.015em;
+
     color: var(--crema);
 
     text-shadow:
-        8px 8px 0 var(--azul);
+        10px 10px 0 var(--azul);
 
-    animation: aparecer 1s ease forwards;
+    opacity: 0;
+
+    animation: aparecerTitulo 1s ease 0.2s forwards;
 }
 
 .hero-text {
     max-width: 520px;
-    margin: 2.5rem auto;
 
-    font-size: 1.05rem;
-    line-height: 1.6;
+    margin: 3rem auto 2.5rem;
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+
+    color: var(--crema);
+
+    opacity: 0;
+
+    animation: aparecer 0.8s ease 0.7s forwards;
 }
 
+/* =========================
+   BOTÓN
+========================= */
+
 .hero-button {
-    display: inline-block;
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 180px;
 
     padding: 1rem 2rem;
 
-    background-color: var(--crema);
+    background: var(--crema);
     color: var(--negro);
 
     text-decoration: none;
+
     font-family: 'Anton', sans-serif;
+
+    font-size: 1.1rem;
+
     letter-spacing: 0.08em;
 
     transition:
         transform 0.3s ease,
-        background-color 0.3s ease,
+        background 0.3s ease,
         color 0.3s ease;
+
+    opacity: 0;
+
+    animation: aparecer 0.8s ease 0.9s forwards;
 }
 
 .hero-button:hover {
     transform: scale(1.08) rotate(-2deg);
-    background-color: var(--amarillo);
+
+    background: var(--amarillo);
+
     color: var(--negro);
 }
 
+/* =========================
+   ESTRELLAS
+========================= */
+
 .star {
     position: absolute;
+
+    z-index: 3;
+
     font-size: clamp(2rem, 4vw, 5rem);
+
     color: var(--crema);
-    z-index: 1;
+
+    user-select: none;
 
     animation: flotar 4s ease-in-out infinite;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
 }
 
 .star-top {
     top: 8%;
     left: 50%;
+
+    transform: translateX(-50%);
 }
 
 .star-right {
     right: 8%;
     top: 48%;
+
     animation-delay: 0.7s;
 }
 
 .star-bottom {
     bottom: 8%;
     left: 50%;
+
+    transform: translateX(-50%);
+
     animation-delay: 1.4s;
 }
 
 .star-left {
     left: 8%;
     top: 48%;
+
     animation-delay: 2.1s;
 }
 
+/* =========================
+   ELEMENTOS DECORATIVOS
+========================= */
+
+.hero-content::before {
+    content: "01";
+
+    position: absolute;
+
+    left: -5%;
+    top: 10%;
+
+    font-family: 'Anton', sans-serif;
+
+    font-size: 1.2rem;
+
+    color: var(--amarillo);
+
+    letter-spacing: 0.1em;
+
+    opacity: 0.8;
+}
+
+.hero-content::after {
+    content: "WEB · BRAND · DIGITAL";
+
+    position: absolute;
+
+    right: -4%;
+    bottom: 8%;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.25em;
+
+    color: var(--crema);
+
+    writing-mode: vertical-rl;
+
+    opacity: 0.7;
+}
+
+/* =========================
+   SEGUNDA SECCIÓN
+========================= */
+
 .placeholder {
     min-height: 100vh;
+
     padding: 10rem 8%;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
 
-    background-color: var(--crema);
+    background: var(--crema);
+
     color: var(--negro);
 }
 
 .placeholder p {
     font-size: 0.8rem;
+
     letter-spacing: 0.3em;
+
     margin-bottom: 2rem;
 }
 
 .placeholder h2 {
     font-family: 'Anton', sans-serif;
+
     font-size: clamp(4rem, 10vw, 9rem);
+
     line-height: 0.85;
 }
+
+/* =========================
+   ANIMACIONES
+========================= */
 
 @keyframes aparecer {
     from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(25px);
     }
 
     to {
@@ -170,35 +335,86 @@ h1 {
     }
 }
 
-@keyframes flotar {
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
+@keyframes aparecerTitulo {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.96);
     }
 
-    50% {
-        transform: translateY(-15px) rotate(8deg);
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 
+@keyframes flotar {
+
+    0%,
+    100% {
+        margin-top: 0;
+        rotate: 0deg;
+    }
+
+    50% {
+        margin-top: -15px;
+        rotate: 8deg;
+    }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
 @media (max-width: 600px) {
 
+    .hero {
+        min-height: 100svh;
+    }
+
     h1 {
-        font-size: clamp(4rem, 20vw, 7rem);
-        text-shadow: 5px 5px 0 var(--azul);
+        font-size: clamp(4.5rem, 21vw, 7rem);
+
+        text-shadow:
+            5px 5px 0 var(--azul);
+    }
+
+    .eyebrow {
+        font-size: 0.6rem;
+        letter-spacing: 0.28em;
     }
 
     .hero-text {
-        font-size: 0.95rem;
-        padding: 0 1rem;
+        font-size: 0.9rem;
+
+        padding: 0 1.2rem;
+
+        margin-top: 2.5rem;
+    }
+
+    .hero-content::before {
+        left: 0;
+        top: -12%;
+    }
+
+    .hero-content::after {
+        right: 0;
+        bottom: -15%;
     }
 
     .star-left {
-        left: 4%;
+        left: 3%;
     }
 
     .star-right {
-        right: 4%;
+        right: 3%;
+    }
+
+    .star-top {
+        top: 5%;
+    }
+
+    .star-bottom {
+        bottom: 5%;
     }
 
     .placeholder {
