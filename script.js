@@ -105,3 +105,102 @@ businessCards.forEach((card) => {
     });
 
 });
+// =========================
+// OBJETIVOS
+// =========================
+
+const goalCards = document.querySelectorAll(".goal-card");
+
+const goalCount = document.querySelector("#goal-count");
+const goalsResultTitle = document.querySelector("#goals-result-title");
+const goalsResultText = document.querySelector("#goals-result-text");
+
+
+const goalData = {
+
+    ventas: {
+        title: "QUERÉS HACER CRECER TU NEGOCIO.",
+        text: "Una página puede ayudarte a mostrar lo que vendés, presentar tus productos y facilitar el camino entre conocer tu marca y realizar una compra."
+    },
+
+    imagen: {
+        title: "QUERÉS QUE TU MARCA SE VEA COMO IMAGINÁS.",
+        text: "Tu página puede convertirse en una extensión de la identidad de tu emprendimiento y ayudarte a construir una imagen más completa y profesional."
+    },
+
+    clientes: {
+        title: "QUERÉS ESTAR MÁS CERCA.",
+        text: "Una web puede reunir la información que tus clientes necesitan y hacer más sencilla la forma de comunicarse con vos."
+    },
+
+    informacion: {
+        title: "QUERÉS ORDENARLO TODO.",
+        text: "Productos, servicios, horarios, información y formas de contacto pueden convivir en un mismo espacio."
+    },
+
+    contacto: {
+        title: "QUERÉS QUE CONTACTARTE SEA MÁS FÁCIL.",
+        text: "Podemos destacar WhatsApp, redes sociales, formularios, ubicación y otros canales para que tus clientes encuentren rápidamente cómo comunicarse."
+    },
+
+    profesional: {
+        title: "QUERÉS DAR UNA MEJOR PRIMERA IMPRESIÓN.",
+        text: "Una página diseñada específicamente para tu emprendimiento puede ayudarte a presentar tu negocio de una forma clara, cuidada y profesional."
+    }
+
+};
+
+
+goalCards.forEach((card) => {
+
+    card.addEventListener("click", () => {
+
+        card.classList.toggle("active");
+
+        const selectedGoals = document.querySelectorAll(".goal-card.active");
+
+        const total = selectedGoals.length;
+
+        goalCount.textContent =
+            `${total} ${total === 1 ? "OBJETIVO SELECCIONADO" : "OBJETIVOS SELECCIONADOS"}`;
+
+
+        if (total === 0) {
+
+            goalsResultTitle.textContent =
+                "¿QUÉ QUERÉS LOGRAR?";
+
+            goalsResultText.textContent =
+                "Seleccioná una o varias opciones para comenzar a construir una idea de lo que necesitás.";
+
+            return;
+        }
+
+
+        const firstGoal = selectedGoals[0].dataset.goal;
+
+        const selectedData = goalData[firstGoal];
+
+        if (!selectedData) return;
+
+
+        if (total === 1) {
+
+            goalsResultTitle.textContent =
+                selectedData.title;
+
+            goalsResultText.textContent =
+                selectedData.text;
+
+        } else {
+
+            goalsResultTitle.textContent =
+                "TENÉS UNA IDEA CLARA.";
+
+            goalsResultText.textContent =
+                `Seleccionaste ${total} objetivos. Podemos pensar una página que combine estas necesidades y se adapte realmente a tu emprendimiento.`;
+        }
+
+    });
+
+});
