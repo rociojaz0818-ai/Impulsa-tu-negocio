@@ -1227,3 +1227,244 @@ h1 {
         right: 5%;
     }
 }
+/* =========================
+   SECCIÓN 05 — RESULTADO
+========================= */
+
+.result-section {
+    position: relative;
+    min-height: 100vh;
+    padding: 120px 8vw;
+    background: #FCF5AF;
+    color: #000000;
+    overflow: hidden;
+}
+
+.result-header {
+    max-width: 850px;
+    margin-bottom: 80px;
+}
+
+.result-header .section-number {
+    color: #BA011A;
+}
+
+.result-header h2 {
+    margin: 20px 0;
+    font-family: "Anton", sans-serif;
+    font-size: clamp(4rem, 9vw, 9rem);
+    line-height: 0.88;
+    letter-spacing: -2px;
+}
+
+.result-header h2 span {
+    display: block;
+    color: #BA011A;
+}
+
+.result-header .section-description {
+    max-width: 600px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+
+/* CONTENIDO PRINCIPAL */
+
+.result-main {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 70px;
+    align-items: stretch;
+}
+
+
+/* FRASE PRINCIPAL */
+
+.result-statement {
+    padding: 55px;
+    background: #0B4B8B;
+    color: #FCF5AF;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: rotate(-1deg);
+    box-shadow: 12px 12px 0 #000000;
+}
+
+.result-label {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.result-statement h3 {
+    font-family: "Anton", sans-serif;
+    font-size: clamp(2.8rem, 5vw, 5.5rem);
+    line-height: 0.95;
+    margin: 0 0 30px;
+}
+
+.result-statement p {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 550px;
+}
+
+
+/* IDEAS */
+
+.result-ideas {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.idea-card {
+    position: relative;
+    padding: 25px 30px;
+    background: #E44F0A;
+    color: #000000;
+    min-height: 110px;
+
+    display: grid;
+    grid-template-columns: 40px 50px 1fr;
+    align-items: center;
+    gap: 15px;
+
+    transition: transform 0.3s ease;
+}
+
+.idea-card:nth-child(2) {
+    background: #0B4B8B;
+    color: #FCF5AF;
+    transform: translateX(25px);
+}
+
+.idea-card:nth-child(3) {
+    background: #BA011A;
+    color: #FCF5AF;
+    transform: translateX(-10px);
+}
+
+.idea-card:hover {
+    transform: translateX(15px) rotate(-1deg);
+}
+
+.idea-card span {
+    font-size: 1.5rem;
+}
+
+.idea-card strong {
+    font-family: "Anton", sans-serif;
+    font-size: 1.5rem;
+}
+
+.idea-card p {
+    margin: 0;
+    font-family: "Anton", sans-serif;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+
+/* CTA */
+
+.result-cta {
+    margin-top: 100px;
+    padding-top: 40px;
+    border-top: 3px solid #000000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.result-cta p {
+    margin: 0;
+    font-family: "Anton", sans-serif;
+    font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+.result-button {
+    display: inline-block;
+    padding: 20px 35px;
+    background: #BA011A;
+    color: #FCF5AF;
+
+    font-family: "Anton", sans-serif;
+    font-size: 1.3rem;
+    text-decoration: none;
+
+    border: 3px solid #000000;
+    box-shadow: 7px 7px 0 #000000;
+
+    transition: all 0.2s ease;
+}
+
+.result-button:hover {
+    transform: translate(5px, 5px);
+    box-shadow: 2px 2px 0 #000000;
+}
+
+
+/* ESTRELLAS */
+
+.result-star-1 {
+    position: absolute;
+    top: 12%;
+    right: 5%;
+    color: #BA011A;
+    font-size: 3rem;
+    animation: floatStar 4s ease-in-out infinite;
+}
+
+.result-star-2 {
+    position: absolute;
+    bottom: 10%;
+    left: 4%;
+    color: #E44F0A;
+    font-size: 2rem;
+    animation: floatStar 5s ease-in-out infinite reverse;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+
+    .result-section {
+        padding: 90px 6vw;
+    }
+
+    .result-header {
+        margin-bottom: 50px;
+    }
+
+    .result-main {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .result-statement {
+        padding: 35px;
+        min-height: 350px;
+    }
+
+    .idea-card:nth-child(2),
+    .idea-card:nth-child(3) {
+        transform: none;
+    }
+
+    .result-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 70px;
+    }
+
+}
