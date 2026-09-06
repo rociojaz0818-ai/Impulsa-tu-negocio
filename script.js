@@ -204,3 +204,112 @@ goalCards.forEach((card) => {
     });
 
 });
+// =========================
+// NECESIDADES DEL CLIENTE
+// =========================
+
+const clientCards = document.querySelectorAll(".client-card");
+
+const clientCount = document.querySelector("#client-count");
+
+const clientResultTitle =
+    document.querySelector("#client-result-title");
+
+const clientResultText =
+    document.querySelector("#client-result-text");
+
+
+const clientData = {
+
+    productos: {
+        title: "QUE PUEDA VER LO QUE OFRECÉS.",
+        text: "Podemos organizar tus productos de forma clara para que tu cliente pueda recorrerlos y conocerlos fácilmente."
+    },
+
+    servicios: {
+        title: "QUE ENTIENDA LO QUE HACÉS.",
+        text: "Una página puede explicar tus servicios de forma sencilla y mostrar qué podés ofrecerle a cada cliente."
+    },
+
+    precios: {
+        title: "QUE ENCUENTRE LA INFORMACIÓN QUE BUSCA.",
+        text: "Mostrar precios, promociones o información importante puede reducir dudas y facilitar la decisión de compra."
+    },
+
+    contacto: {
+        title: "QUE PUEDA HABLAR CON VOS.",
+        text: "Podemos destacar tus canales de contacto para que pasar de visitar tu página a consultarte sea mucho más sencillo."
+    },
+
+    reservar: {
+        title: "QUE PUEDA RESERVAR.",
+        text: "Si trabajás con turnos o reservas, podemos crear un espacio pensado específicamente para facilitar ese proceso."
+    },
+
+    ubicacion: {
+        title: "QUE PUEDA ENCONTRARTE.",
+        text: "Tu ubicación, horarios y formas de llegar pueden estar disponibles en un solo lugar y de manera fácil de consultar."
+    }
+
+};
+
+
+clientCards.forEach((card) => {
+
+    card.addEventListener("click", () => {
+
+        card.classList.toggle("active");
+
+        const selected =
+            document.querySelectorAll(".client-card.active");
+
+        const total = selected.length;
+
+        clientCount.textContent =
+            `${total} ${total === 1
+                ? "NECESIDAD SELECCIONADA"
+                : "NECESIDADES SELECCIONADAS"}`;
+
+
+        if (total === 0) {
+
+            clientResultTitle.textContent =
+                "PENSEMOS EN TU CLIENTE.";
+
+            clientResultText.textContent =
+                "Seleccioná una o varias opciones para pensar qué debería encontrar tu cliente en tu página.";
+
+            return;
+        }
+
+
+        const firstNeed =
+            selected[0].dataset.need;
+
+        const data =
+            clientData[firstNeed];
+
+        if (!data) return;
+
+
+        if (total === 1) {
+
+            clientResultTitle.textContent =
+                data.title;
+
+            clientResultText.textContent =
+                data.text;
+
+        } else {
+
+            clientResultTitle.textContent =
+                "TU CLIENTE SABRÁ QUÉ HACER.";
+
+            clientResultText.textContent =
+                `Seleccionaste ${total} necesidades. Podemos organizar la página para que tu cliente encuentre rápidamente la información y las acciones más importantes.`;
+
+        }
+
+    });
+
+});
