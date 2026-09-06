@@ -906,3 +906,221 @@ h1 {
         right: 5%;
     }
 }
+/* =========================
+   ARREGLO SECCIÓN 03
+========================= */
+
+.goals-section {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    padding: 10rem 8%;
+    background: #000000;
+    color: #FCF5AF;
+}
+
+.goals-header {
+    max-width: 900px;
+    position: relative;
+    z-index: 2;
+}
+
+.goals-header .section-number {
+    color: #F0A533;
+}
+
+.goals-header h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.82;
+    margin: 0;
+}
+
+.goals-header h2 span {
+    color: #E44F0A;
+}
+
+.goals-header .section-description {
+    max-width: 500px;
+    margin-top: 2.5rem;
+    color: #FCF5AF;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* OPCIONES */
+
+.goals-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 7rem;
+
+    border-top: 1px solid rgba(252, 245, 175, 0.4);
+    border-left: 1px solid rgba(252, 245, 175, 0.4);
+
+    position: relative;
+    z-index: 2;
+}
+
+.goal-card {
+    min-height: 150px;
+    padding: 2rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    border: 0;
+    border-right: 1px solid rgba(252, 245, 175, 0.4);
+    border-bottom: 1px solid rgba(252, 245, 175, 0.4);
+
+    background: transparent;
+    color: #FCF5AF;
+
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        padding 0.3s ease;
+}
+
+.goal-card:hover {
+    background: #E44F0A;
+    color: #FCF5AF;
+    padding-left: 2.8rem;
+}
+
+.goal-card.active {
+    background: #FCF5AF;
+    color: #000000;
+}
+
+.goal-number {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    min-width: 25px;
+}
+
+.goal-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(1.3rem, 2.5vw, 2.2rem);
+    line-height: 1;
+}
+
+.goal-check {
+    margin-left: auto;
+    font-size: 2rem;
+
+    transition: transform 0.3s ease;
+}
+
+.goal-card.active .goal-check {
+    transform: rotate(45deg);
+}
+
+
+/* RESULTADO */
+
+.goals-result {
+    max-width: 800px;
+    margin: 5rem auto 0;
+    padding: 3rem;
+
+    background: #BA011A;
+    color: #FCF5AF;
+
+    position: relative;
+    z-index: 2;
+}
+
+.result-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+
+    margin-bottom: 1.5rem;
+}
+
+.goals-result h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.85;
+    margin-bottom: 1.5rem;
+}
+
+.goals-result p {
+    max-width: 550px;
+    line-height: 1.6;
+}
+
+
+/* ESTRELLAS */
+
+.goal-star-1,
+.goal-star-2 {
+    position: absolute;
+
+    font-size: clamp(3rem, 7vw, 7rem);
+
+    pointer-events: none;
+}
+
+.goal-star-1 {
+    top: 7%;
+    right: 8%;
+    color: #0B4B8B;
+}
+
+.goal-star-2 {
+    bottom: 6%;
+    left: 7%;
+    color: #F0A533;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    .goals-section {
+        padding: 7rem 6%;
+    }
+
+    .goals-options {
+        grid-template-columns: 1fr;
+        margin-top: 5rem;
+    }
+
+    .goal-card {
+        min-height: 120px;
+        padding: 1.5rem;
+    }
+
+    .goal-card:hover {
+        padding-left: 1.8rem;
+    }
+
+    .goals-result {
+        padding: 2rem;
+        margin-top: 4rem;
+    }
+
+    .result-top {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .goal-star-1 {
+        top: 3%;
+        right: 5%;
+    }
+}
