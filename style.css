@@ -663,249 +663,87 @@ h1 {
         right: 5%;
     }
 }
-/* =========================
-   SECCIÓN OBJETIVOS
-========================= */
-
-.goals-section {
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-
-    padding: 10rem 8%;
-
-    background: var(--negro);
-    color: var(--crema);
-}
-
-.goals-header {
-    max-width: 900px;
-
-    position: relative;
-    z-index: 2;
-}
-
-.goals-header .section-number {
-    color: var(--amarillo);
-}
-
-.goals-header h2 {
-    font-family: 'Anton', sans-serif;
-
-    font-size: clamp(4rem, 10vw, 9rem);
-
-    line-height: 0.82;
-}
-
-.goals-header h2 span {
-    color: var(--naranja);
-}
-
-.goals-header .section-description {
-    max-width: 500px;
-
-    color: var(--crema);
-}
-
-
-/* OPCIONES */
-
-.goals-options {
-    display: grid;
-
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    margin-top: 7rem;
-
-    border-top: 1px solid rgba(252, 245, 175, 0.4);
-    border-left: 1px solid rgba(252, 245, 175, 0.4);
-
-    position: relative;
-    z-index: 2;
-}
-
-.goal-card {
-    min-height: 150px;
-
-    padding: 2rem;
-
-    display: flex;
-    align-items: center;
-
-    gap: 1.5rem;
-
-    border: 0;
-    border-right: 1px solid rgba(252, 245, 175, 0.4);
-    border-bottom: 1px solid rgba(252, 245, 175, 0.4);
-
-    background: transparent;
-    color: var(--crema);
-
-    text-align: left;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        padding 0.3s ease;
-}
-
-.goal-card:hover {
-    background: var(--naranja);
-
-    padding-left: 2.8rem;
-}
-
-.goal-card.active {
-    background: var(--crema);
-    color: var(--negro);
-}
-
-.goal-number {
-    font-size: 0.7rem;
-
-    opacity: 0.5;
-
-    min-width: 25px;
-}
-
-.goal-title {
-    font-family: 'Anton', sans-serif;
-
-    font-size: clamp(1.3rem, 2.5vw, 2.2rem);
-
-    line-height: 1;
-}
-
-.goal-check {
-    margin-left: auto;
-
-    font-size: 2rem;
-
-    transition:
-        transform 0.3s ease;
-}
-
-.goal-card.active .goal-check {
-    transform: rotate(45deg);
-}
-
-
-/* RESULTADO */
-
-.goals-result {
-    max-width: 800px;
-
-    margin: 5rem auto 0;
-
-    padding: 3rem;
-
-    background: var(--rojo);
-
-    color: var(--crema);
-
-    position: relative;
-    z-index: 2;
-}
-
-.result-top {
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 2rem;
-
-    font-size: 0.7rem;
-
-    letter-spacing: 0.2em;
-
-    margin-bottom: 1.5rem;
-}
-
-.goals-result h3 {
-    font-family: 'Anton', sans-serif;
-
-    font-size: clamp(3rem, 7vw, 6rem);
-
-    line-height: 0.85;
-
-    margin-bottom: 1.5rem;
-}
-
-.goals-result p {
-    max-width: 550px;
-
-    line-height: 1.6;
-}
-
-
-/* ESTRELLAS */
-
-.goal-star-1 {
-    position: absolute;
-
-    top: 7%;
-    right: 8%;
-
-    color: var(--azul);
-
-    font-size: clamp(3rem, 7vw, 7rem);
-}
-
-.goal-star-2 {
-    position: absolute;
-
-    bottom: 6%;
-    left: 7%;
-
-    color: var(--amarillo);
-
-    font-size: clamp(3rem, 7vw, 7rem);
-}
-
-
-/* CELULAR */
-
-@media (max-width: 700px) {
-
-    .goals-section {
-        padding: 7rem 6%;
-    }
-
-    .goals-options {
-        grid-template-columns: 1fr;
-
-        margin-top: 5rem;
-    }
-
-    .goal-card {
-        min-height: 120px;
-
-        padding: 1.5rem;
-    }
-
-    .goal-card:hover {
-        padding-left: 1.8rem;
-    }
-
-    .goals-result {
-        padding: 2rem;
-
-        margin-top: 4rem;
-    }
-
-    .result-top {
-        flex-direction: column;
-
-        gap: 0.5rem;
-    }
-
-    .goal-star-1 {
-        top: 3%;
-        right: 5%;
-    }
-}
+<section id="objetivos" class="goals-section">
+
+    <div class="goals-header">
+
+        <p class="section-number">03 / TUS OBJETIVOS</p>
+
+        <h2>
+            ¿QUÉ BUSCÁS
+            <span>CONSEGUIR</span>
+            CON ESTO?
+        </h2>
+
+        <p class="section-description">
+            Elegí todo lo que te gustaría conseguir con tu página.
+            Podés seleccionar más de una opción.
+        </p>
+
+    </div>
+
+    <div class="goals-options">
+
+        <button type="button" class="goal-card" data-goal="ventas">
+            <span class="goal-number">01</span>
+            <span class="goal-title">GENERAR MÁS VENTAS</span>
+            <span class="goal-check">+</span>
+        </button>
+
+        <button type="button" class="goal-card" data-goal="imagen">
+            <span class="goal-number">02</span>
+            <span class="goal-title">MOSTRAR LA IMAGEN DE MI EMPRENDIMIENTO</span>
+            <span class="goal-check">+</span>
+        </button>
+
+        <button type="button" class="goal-card" data-goal="clientes">
+            <span class="goal-number">03</span>
+            <span class="goal-title">FACILITAR LA RELACIÓN CON CLIENTES</span>
+            <span class="goal-check">+</span>
+        </button>
+
+        <button type="button" class="goal-card" data-goal="informacion">
+            <span class="goal-number">04</span>
+            <span class="goal-title">TENER TODA LA INFORMACIÓN EN UN SOLO LUGAR</span>
+            <span class="goal-check">+</span>
+        </button>
+
+        <button type="button" class="goal-card" data-goal="contacto">
+            <span class="goal-number">05</span>
+            <span class="goal-title">FACILITAR EL CONTACTO</span>
+            <span class="goal-check">+</span>
+        </button>
+
+        <button type="button" class="goal-card" data-goal="profesional">
+            <span class="goal-number">06</span>
+            <span class="goal-title">MOSTRAR MI NEGOCIO DE FORMA PROFESIONAL</span>
+            <span class="goal-check">+</span>
+        </button>
+
+    </div>
+
+    <div class="goals-result">
+
+        <div class="result-top">
+            <span>PERFECTO.</span>
+            <span id="goal-count">0 OBJETIVOS SELECCIONADOS</span>
+        </div>
+
+        <h3 id="goals-result-title">
+            ¿QUÉ QUERÉS LOGRAR?
+        </h3>
+
+        <p id="goals-result-text">
+            Seleccioná una o varias opciones para comenzar a
+            construir una idea de lo que necesitás.
+        </p>
+
+    </div>
+
+    <span class="section-star goal-star-1">✦</span>
+    <span class="section-star goal-star-2">✦</span>
+
+</section>
 /* =========================
    ARREGLO SECCIÓN 03
 ========================= */
