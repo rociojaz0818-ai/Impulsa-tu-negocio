@@ -378,3 +378,230 @@ const revealObserver = new IntersectionObserver(
 revealElements.forEach((element) => {
     revealObserver.observe(element);
 });
+/* =========================
+   RESULTADO PERSONALIZADO
+========================= */
+
+const finalResultTitle = document.getElementById("final-result-title");
+const finalResultText = document.getElementById("final-result-text");
+
+const ideaOne = document.getElementById("idea-one");
+const ideaTwo = document.getElementById("idea-two");
+const ideaThree = document.getElementById("idea-three");
+
+function updateFinalResult() {
+
+    const selectedBusiness = document.querySelector(
+        ".business-card.active"
+    );
+
+    const selectedGoals = document.querySelectorAll(
+        ".goal-card.active"
+    );
+
+    const selectedNeeds = document.querySelectorAll(
+        ".client-card.active"
+    );
+
+
+    /* SI TODAVÍA NO SELECCIONÓ NADA */
+
+    if (
+        !selectedBusiness &&
+        selectedGoals.length === 0 &&
+        selectedNeeds.length === 0
+    ) {
+
+        finalResultTitle.textContent =
+            "TU PÁGINA PUEDE SER MUCHO MÁS.";
+
+        finalResultText.textContent =
+            "Seleccioná tus opciones anteriores para descubrir qué podemos construir para tu emprendimiento.";
+
+        ideaOne.textContent =
+            "MOSTRAR LO QUE HACÉS";
+
+        ideaTwo.textContent =
+            "CONECTAR CON TUS CLIENTES";
+
+        ideaThree.textContent =
+            "HACER CRECER TU MARCA";
+
+        return;
+    }
+
+
+    /* NEGOCIO */
+
+    let businessText = "";
+
+    if (selectedBusiness) {
+
+        const type = selectedBusiness.dataset.type;
+
+        const businessNames = {
+
+            productos: "mostrar tus productos",
+
+            servicios: "presentar tus servicios",
+
+            portafolio: "mostrar tu trabajo",
+
+            reservas: "gestionar reservas y turnos",
+
+            catalogo: "crear un catálogo online",
+
+            otro: "mostrar tu emprendimiento de una forma personalizada"
+
+        };
+
+        businessText =
+            businessNames[type] || "mostrar tu emprendimiento";
+
+    }
+
+
+    /* OBJETIVOS */
+
+    const goalTexts = [];
+
+    selectedGoals.forEach((card) => {
+
+        const goal = card.dataset.goal;
+
+        const texts = {
+
+            ventas: "generar más ventas",
+
+            imagen: "mostrar la imagen de tu marca",
+
+            clientes: "estar más cerca de tus clientes",
+
+            informacion: "tener toda la información organizada",
+
+            contacto: "facilitar el contacto",
+
+            profesional: "mostrar tu negocio de forma profesional"
+
+        };
+
+        if (texts[goal]) {
+            goalTexts.push(texts[goal]);
+        }
+
+    });
+
+
+    /* NECESIDADES DEL CLIENTE */
+
+    const needTexts = [];
+
+    selectedNeeds.forEach((card) => {
+
+        const need = card.dataset.need;
+
+        const texts = {
+
+            productos: "ver tus productos",
+
+            servicios: "conocer tus servicios",
+
+            precios: "conocer tus precios",
+
+            contacto: "contactarte fácilmente",
+
+            reservar: "reservar un turno",
+
+            ubicacion: "encontrar tu ubicación"
+
+        };
+
+        if (texts[need]) {
+            needTexts.push(texts[need]);
+        }
+
+    });
+
+
+    /* TÍTULO */
+
+    finalResultTitle.textContent =
+        "PENSEMOS UNA WEB PARA VOS.";
+
+
+    /* TEXTO */
+
+    let resultText =
+        "Podemos pensar una página que te ayude a ";
+
+    if (businessText) {
+        resultText += businessText;
+    } else {
+        resultText += "mostrar tu emprendimiento";
+    }
+
+
+    if (goalTexts.length > 0) {
+
+        resultText +=
+            ", pensada para " +
+            goalTexts.slice(0, 2).join(" y ");
+
+    }
+
+
+    if (needTexts.length > 0) {
+
+        resultText +=
+            ". Y que permita a tus clientes " +
+            needTexts.slice(0, 2).join(" y ");
+
+    }
+
+    resultText += ".";
+
+    finalResultText.textContent = resultText;
+
+
+    /* TARJETAS */
+
+    ideaOne.textContent =
+        businessText
+            ? businessText.toUpperCase()
+            : "MOSTRAR LO QUE HACÉS";
+
+
+    ideaTwo.textContent =
+        goalTexts.length > 0
+            ? goalTexts[0].toUpperCase()
+            : "CONECTAR CON TUS CLIENTES";
+
+
+    ideaThree.textContent =
+        needTexts.length > 0
+            ? needTexts[0].toUpperCase()
+            : "HACER CRECER TU MARCA";
+
+}
+
+
+/* ACTUALIZAR CUANDO SELECCIONA ALGO */
+
+document.addEventListener("click", (event) => {
+
+    if (
+        event.target.closest(".business-card") ||
+        event.target.closest(".goal-card") ||
+        event.target.closest(".client-card")
+    ) {
+
+        setTimeout(updateFinalResult, 50);
+
+    }
+
+});
+
+
+/* ESTADO INICIAL */
+
+updateFinalResult();
