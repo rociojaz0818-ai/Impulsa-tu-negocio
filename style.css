@@ -421,3 +421,245 @@ h1 {
         padding: 7rem 7%;
     }
 }
+/* =========================
+   SECCIÓN NEGOCIO
+========================= */
+
+.business-section {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    padding: 10rem 8%;
+
+    background: var(--crema);
+    color: var(--negro);
+}
+
+.business-header {
+    max-width: 900px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-number {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    font-weight: 700;
+
+    margin-bottom: 2rem;
+
+    color: var(--rojo);
+}
+
+.business-header h2 {
+    font-family: 'Anton', sans-serif;
+
+    font-size: clamp(4rem, 10vw, 9rem);
+
+    line-height: 0.82;
+
+    max-width: 900px;
+}
+
+.business-header h2 span {
+    color: var(--rojo);
+}
+
+.section-description {
+    max-width: 500px;
+
+    margin-top: 2.5rem;
+
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* OPCIONES */
+
+.business-options {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 1px;
+
+    margin-top: 7rem;
+
+    border-top: 1px solid var(--negro);
+    border-left: 1px solid var(--negro);
+
+    position: relative;
+    z-index: 2;
+}
+
+.business-card {
+    position: relative;
+
+    min-height: 150px;
+
+    padding: 2rem;
+
+    border: 0;
+    border-right: 1px solid var(--negro);
+    border-bottom: 1px solid var(--negro);
+
+    background: transparent;
+    color: var(--negro);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        padding 0.3s ease;
+}
+
+.business-card:hover {
+    background: var(--rojo);
+    color: var(--crema);
+
+    padding-left: 2.8rem;
+}
+
+.business-card.active {
+    background: var(--azul);
+    color: var(--crema);
+}
+
+.card-number {
+    font-size: 0.7rem;
+
+    opacity: 0.6;
+
+    min-width: 25px;
+}
+
+.card-title {
+    font-family: 'Anton', sans-serif;
+
+    font-size: clamp(1.5rem, 3vw, 2.7rem);
+
+    line-height: 1;
+}
+
+.card-arrow {
+    margin-left: auto;
+
+    font-size: 1.5rem;
+
+    transition: transform 0.3s ease;
+}
+
+.business-card:hover .card-arrow,
+.business-card.active .card-arrow {
+    transform: rotate(45deg);
+}
+
+
+/* RESPUESTA */
+
+.business-response {
+    max-width: 700px;
+
+    margin: 5rem auto 0;
+
+    padding: 3rem;
+
+    background: var(--negro);
+    color: var(--crema);
+
+    position: relative;
+    z-index: 2;
+}
+
+.response-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+
+    color: var(--amarillo);
+}
+
+.business-response h3 {
+    font-family: 'Anton', sans-serif;
+
+    font-size: clamp(3rem, 7vw, 6rem);
+
+    line-height: 0.85;
+
+    margin: 1.2rem 0;
+}
+
+.business-response p {
+    max-width: 500px;
+
+    line-height: 1.6;
+}
+
+
+/* ESTRELLAS */
+
+.section-star {
+    position: absolute;
+
+    font-size: clamp(3rem, 7vw, 7rem);
+
+    color: var(--naranja);
+
+    pointer-events: none;
+}
+
+.section-star-1 {
+    top: 8%;
+    right: 8%;
+}
+
+.section-star-2 {
+    bottom: 8%;
+    left: 6%;
+
+    color: var(--azul);
+}
+
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    .business-section {
+        padding: 7rem 6%;
+    }
+
+    .business-options {
+        grid-template-columns: 1fr;
+
+        margin-top: 5rem;
+    }
+
+    .business-card {
+        min-height: 120px;
+        padding: 1.5rem;
+    }
+
+    .business-card:hover {
+        padding-left: 1.8rem;
+    }
+
+    .business-response {
+        padding: 2rem;
+
+        margin-top: 4rem;
+    }
+
+    .section-star-1 {
+        top: 3%;
+        right: 5%;
+    }
+}
